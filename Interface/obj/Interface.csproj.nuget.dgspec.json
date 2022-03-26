@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\OneDrive\\İş masası\\C# Task(Interface)\\Interface\\Interface\\Interface.csproj": {}
+    "C:\\Users\\admin\\OneDrive\\İş masası\\Task(Interface)\\Interface\\Interface.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\OneDrive\\İş masası\\C# Task(Interface)\\Interface\\Interface\\Interface.csproj": {
+    "C:\\Users\\admin\\OneDrive\\İş masası\\Task(Interface)\\Interface\\Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\OneDrive\\İş masası\\C# Task(Interface)\\Interface\\Interface\\Interface.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\OneDrive\\İş masası\\Task(Interface)\\Interface\\Interface.csproj",
         "projectName": "Interface",
-        "projectPath": "C:\\Users\\admin\\OneDrive\\İş masası\\C# Task(Interface)\\Interface\\Interface\\Interface.csproj",
+        "projectPath": "C:\\Users\\admin\\OneDrive\\İş masası\\Task(Interface)\\Interface\\Interface.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\OneDrive\\İş masası\\C# Task(Interface)\\Interface\\Interface\\obj\\",
+        "outputPath": "C:\\Users\\admin\\OneDrive\\İş masası\\Task(Interface)\\Interface\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

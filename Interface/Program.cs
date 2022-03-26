@@ -1,30 +1,63 @@
 ﻿using System;
+using System.Linq;
+using Interface.Models;
 
 namespace Interface
 {
     class Program
     {
+        public static object Id { get; private set; }
+
         static void Main(string[] args)
         {
-            /*Bu Qeder Yaza Bildim*/
-            Console.WriteLine("Id daxil et:");
-            int id = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("FullName Daxil edin:");
-            string fullName = Console.ReadLine();
-            Console.WriteLine("Email daxil edin:");
-            string email = Console.ReadLine();
-
-            string password;
-            do
+            Start:
+            string fullName;
+            try
             {
-                Console.WriteLine("Password daxil edin:");
-                password = Console.ReadLine();
+                Console.WriteLine("FullName Daxil edin:");
+                fullName = Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                goto Start;
+            }
 
-            } while (password.Length > 8 || password == password.ToLower() || password == password.ToUpper() );
+            string email;
+            try
+            {
+                Console.WriteLine("Email daxil edin:");
+                email = Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                goto Start;
+            }
+            
+            string password;
+            try
+            {
+                do
+                {
+                    Console.WriteLine("------------------------------------");
+                    Console.WriteLine("Password daxil edin:");
+                    Console.WriteLine("Password daxil edilerken en az 1 reqem,1 boyuk herf ,1 kicik herf daxil edilmelidir.Yazi yerini bos saxlamaq olmaz");
+                    password = Console.ReadLine();
 
-            User  user = new User(email,password);
-            Console.WriteLine(user.PasswordChecker(password));
-            user.ShowInfo(id,fullName,email);
+                } while (password.Length > 8 || string.IsNullOrEmpty(password) || string.IsNullOrWhiteSpace(password) || !password.Any(char.IsUpper) || !password.Any(char.IsLower) || !password.Any(char.IsDigit));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                goto Start;
+            }
+
+            User user1 = new User(email,password);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine($"Password sertlerini odeyirmi:{user1.PasswordChecker(password)}");
+            Console.WriteLine("------------------------------------");
+            user1.ShowInfo(fullName);
         }
     }
 
@@ -42,38 +75,5 @@ namespace Interface
 
     }
 
-    class User : IAccount
-    {
-       
-
-        public int Id { get; }
-
-        public string FullName { get; set; }
-
-        public string Email { get; set; }
-        public string Password { get; set; }
-
-        public User(string email, string password)
-        {
-            this.Email = email;
-            this.Password = password;
-        }
-        public User(int id, string fullName, string email,string password)
-        {
-            this.Id = id;
-            this.FullName = fullName;
-            this.Email = email;
-            this.Password = password;
-        }
-
-        public bool PasswordChecker(string Password)
-        {
-            return true;
-        }
-
-        public void ShowInfo(int Id,string FullName,string Email)
-        {
-            Console.WriteLine($"Id deyeri:{Id} Butun adi:{FullName} Email:{Email}");
-        }
-    }
+    
 }
